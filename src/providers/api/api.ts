@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { AlertController } from 'ionic-angular';
 
 /*
   Generated class for the ApiProvider provider.
@@ -12,8 +13,45 @@ export class ApiProvider {
 
   baseURL: string = 'http://localhost/helpdesk/api';
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, public alertCtrl: AlertController) {
     console.log('Hello ApiProvider Provider');
+  }
+
+  showAlert(msg: string){
+    let alert = this.alertCtrl.create({
+      subTitle: msg,
+      title: '',
+      buttons: ['OK']
+    });
+
+    alert.present();
+  }
+
+  doLogin(user: any){
+    let url: string = this.baseURL + '/login';
+    let body: string = JSON.stringify(user);
+
+    return new Promise((resolve, reject) => {
+        this.http.post(url, body)
+        .subscribe(data => {
+          resolve(data);
+        }, err => {
+          reject(err);
+        })
+    })
+  }
+
+  doSignup(user: any){
+    let url: string = this.baseURL + '/signup';
+    let body: string = JSON.stringify(user);
+    return new Promise((resolve, reject) => {
+        this.http.post(url, body)
+        .subscribe(data => {
+          resolve(data);
+        }, err => {
+          reject(err);
+        })
+    })
   }
 
   getAllAduan(){
@@ -45,9 +83,6 @@ export class ApiProvider {
           reject(err);
         })
     })
-
-    
-
   }
 
 

@@ -6,35 +6,35 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page9">
-  <form id="daftar-form3">
+  <!-- <form id="daftar-form3"> -->
     <ion-list id="daftar-list8">
       <ion-item id="daftar-input8">
         <ion-label>
           Nama
         </ion-label>
-        <ion-input type="text" placeholder=""></ion-input>
+        <ion-input type="text" placeholder="" [(ngModel)]="user.name"></ion-input>
       </ion-item>
       <ion-item id="daftar-input11">
         <ion-label>
           ID Pengguna
         </ion-label>
-        <ion-input type="text" placeholder=""></ion-input>
+        <ion-input type="text" placeholder="" [(ngModel)]="user.username"></ion-input>
       </ion-item>
       <ion-item id="daftar-input9">
         <ion-label>
           Email
         </ion-label>
-        <ion-input type="email" placeholder=""></ion-input>
+        <ion-input type="email" placeholder="" [(ngModel)]="user.email"></ion-input>
       </ion-item>
       <ion-item id="daftar-input10">
         <ion-label>
           Password
         </ion-label>
-        <ion-input type="text" placeholder=""></ion-input>
+        <ion-input type="password" placeholder="" [(ngModel)]="user.password"></ion-input>
       </ion-item>
     </ion-list>
-    <button id="daftar-button5" ion-button color="stable" block>
+    <button (click)="signup()" id="daftar-button5" ion-button color="stable" block>
       Hantar
     </button>
-  </form>
+  <!-- </form> -->
 </ion-content>
