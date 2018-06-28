@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Aduan Baru
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page3">
+  <ion-list id="aduanBaru-list2">
+    <ion-item-divider color="light" id="aduanBaru-list-item-divider1">
+      Butiran Pengadu
+    </ion-item-divider>
+    <ion-item id="aduanBaru-input1">
+      <ion-label>
+        Nama
+      </ion-label>
+      <ion-input type="text" placeholder="Masukkan nama penuh"></ion-input>
+    </ion-item>
+    <ion-item id="aduanBaru-input2">
+      <ion-label>
+        No. K/P
+      </ion-label>
+      <ion-input type="text" placeholder="cth: 8502127900092"></ion-input>
+    </ion-item>
+    <ion-item id="aduanBaru-input3">
+      <ion-label>
+        Email
+      </ion-label>
+      <ion-input type="email" placeholder="cth: ali@email.com"></ion-input>
+    </ion-item>
+    <ion-item id="aduanBaru-select1">
+      <ion-label>
+        Bahagian
+      </ion-label>
+      <ion-select name="">
+        <ion-option>
+          BPM
+        </ion-option>
+        <ion-option>
+          BPKN
+        </ion-option>
+        <ion-option>
+          BPSM
+        </ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item-divider color="light" id="aduanBaru-list-item-divider2">
+      Butiran Aduan
+    </ion-item-divider>
+    <ion-item id="aduanBaru-input4">
+      <ion-label>
+        Aduan
+      </ion-label>
+      <ion-input type="text" placeholder="" [(ngModel)]="aduan.title"></ion-input>
+    </ion-item>
+    <ion-item id="aduanBaru-select3">
+      <ion-label>
+        Kategori
+      </ion-label>
+      <ion-select name="" [(ngModel)]="aduan.kategori">
+        <ion-option value="Kerosakan">
+          Kerosakan
+        </ion-option>
+        <ion-option value="Salah laku">
+          Salah Laku
+        </ion-option>
+        <ion-option value="Rangkaian">
+          Rangkaian
+        </ion-option>
+        <ion-option value="Keselamatan">
+          Keselamatan
+        </ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item id="aduanBaru-textarea2">
+      <ion-label>
+        Masalah
+      </ion-label>
+      <ion-textarea rows="5" [(ngModel)]="aduan.masalah" placeholder="Sila berikan butiran aduan dengan lebih terperinci"></ion-textarea>
+    </ion-item>
+  </ion-list>
+  <button (click)="submitAduan()" id="aduanBaru-button1" ion-button color="positive" block icon-right style="border-radius:30px 30px 30px 30px;">
+    Hantar
+    <ion-icon name="send"></ion-icon>
+  </button>
+</ion-content>

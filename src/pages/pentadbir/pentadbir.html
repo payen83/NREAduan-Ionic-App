@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Pentadbir
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page6">
+  <ion-list id="pentadbir-list4">
+    <ion-item *ngFor="let aduan of aduanList" color="none" (click)="goToKemaskini(aduan)" id="pentadbir-list-item21">
+      <p>No. Aduan: {{aduan.aduan_id}}</p>
+      <h2>Aduan: {{aduan.title}}</h2>
+      <h5>Tarikh: {{aduan.created}}</h5>
+      <ion-note item-right></ion-note>
+      <ion-icon name="arrow-forward" item-right></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>

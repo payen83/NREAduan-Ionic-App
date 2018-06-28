@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Utama
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page2">
+  <ion-list id="utama-list1">
+
+    <ion-item (click)="goToTab(1)" color="none" id="utama-list-item1">
+      <ion-icon name="create" item-left></ion-icon>
+      Aduan
+      <ion-icon name="arrow-forward" item-right></ion-icon>
+    </ion-item>
+
+    <ion-item (click)="goToTab(2)" color="none" id="utama-list-item2">
+      <ion-icon name="search" item-left></ion-icon>
+      Semakan
+      <ion-icon name="arrow-forward" item-right></ion-icon>
+    </ion-item>
+
+    <ion-item (click)="goToTab(3)" color="none" id="utama-list-item3">
+      <ion-icon name="megaphone" item-left></ion-icon>
+      Hubungi
+      <ion-icon name="arrow-forward" item-right></ion-icon>
+    </ion-item>
+
+    <ion-item (click)="goToTab(4)" color="none" id="utama-list-item4">
+      <ion-icon name="person" item-left></ion-icon>
+      Pentadbir
+      <ion-icon name="arrow-forward" item-right></ion-icon>
+    </ion-item>
+
+  </ion-list>
+</ion-content>
