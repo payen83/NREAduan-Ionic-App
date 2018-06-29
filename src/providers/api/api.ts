@@ -97,6 +97,27 @@ export class ApiProvider {
     })
   }
 
+  deleteAduan(aduan){
+    let url: string = this.baseURL + '/deleteAduan';
+    let newUser: any = {};
+    let user: any = JSON.parse(this.getUser());
+
+    newUser.token = user.token;
+    newUser.user_id = user.user_id;
+    newUser.aduan_id = aduan.aduan_id;
+
+    let body = JSON.stringify(newUser);
+
+    return new Promise((resolve, reject) => {
+        this.http.post(url, body)
+        .subscribe(data => {
+          resolve(data);
+        }, err => {
+          reject(err);
+        })
+    })
+  }
+
   createAduan(aduan: any){
     let url: string = this.baseURL + '/createAduan';
     let newAduan: any = aduan;

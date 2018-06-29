@@ -5,17 +5,26 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding id="page4">
+<ion-content id="page4">
   <!-- <form id="semakan-form1"> -->
     <ion-searchbar (ionInput)="getItems($event)" placeholder="Masukkan kata kunci" name="" id="semakan-search1"></ion-searchbar>
   <!-- </form> -->
   <ion-list id="semakan-list3">
-    <ion-item *ngFor="let item of semakanList" color="none" id="semakan-list-item8">
-      No. Aduan: {{item.aduan_id}}<br/>
-      Aduan: {{item.title}}<br/>
-      Status: {{item.status}}
-      <ion-note item-right></ion-note>
-    </ion-item>
+    <ion-item-sliding *ngFor="let item of semakanList">
+
+      <ion-item  color="none" id="semakan-list-item8">
+        <p>No. Aduan: {{item.aduan_id}}</p>
+        <p>Aduan: {{item.title}}, Status: {{item.status}}</p>
+        <ion-note item-right></ion-note>
+      </ion-item>
+
+      <ion-item-options side="right">
+          <button ion-button color="danger" (click)="batal(item)">
+            <ion-icon name="trash"></ion-icon>Batal
+          </button>
+      </ion-item-options>
+    </ion-item-sliding>
+
   </ion-list>
 
 </ion-content>
