@@ -25,7 +25,7 @@ export class DaftarPage {
           this.api.showAlert('Registration successfull, please proceed to login')
           this.navCtrl.pop();
         } else {
-          this.api.showAlert('err msg1: '+response.error.text);
+          this.api.showAlert(response.error.text);
         }
       }, err => {
         this.api.showAlert(JSON.stringify(err));

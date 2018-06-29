@@ -11,8 +11,10 @@ import { AlertController } from 'ionic-angular';
 @Injectable()
 export class ApiProvider {
 
-  baseURL: string = 'http://localhost/helpdesk/api';
+   baseURL: string = 'http://localhost/helpdesk/api';
+  //baseURL: string = 'http://helpdesk.appsmalaya.com/api';
 
+  
   constructor(public http: HttpClient, public alertCtrl: AlertController) {
     console.log('Hello ApiProvider Provider');
   }
@@ -68,18 +70,51 @@ export class ApiProvider {
 
   }
 
-  createAduan(aduan: any){
-    let url: string = this.baseURL + '/createAduan';
-    let newAduan: any = aduan;
-    newAduan.token = "8c48a6445a0f2aad9f717ee6ae580bb05065e051a2506e3adc89370e988f863a";
-    newAduan.user_id = 3;
-    let body = JSON.stringify(newAduan);
+  getUser(){
+    let data = localStorage.getItem('USER');
+    if (data){
+      return data;
+    }
+  }
+
+  getAduanById(){
+    let url: string = this.baseURL + '/getAduan';
+    let newUser: any = {};
+    let user: any = JSON.parse(this.getUser());
+
+    newUser.token = user.token;
+    newUser.user_id = user.user_id;
+
+    let body = JSON.stringify(newUser);
 
     return new Promise((resolve, reject) => {
         this.http.post(url, body)
         .subscribe(data => {
           resolve(data);
         }, err => {
+          reject(err);
+        })
+    })
+  }
+
+  createAduan(aduan: any){
+    let url: string = this.baseURL + '/createAduan';
+    let newAduan: any = aduan;
+
+    let user: any = JSON.parse(this.getUser());
+
+    newAduan.token = user.token;
+    newAduan.user_id = user.user_id;
+
+    let body = JSON.stringify(newAduan);
+    //console.log(body);
+    return new Promise((resolve, reject) => {
+        this.http.post(url, body)
+        .subscribe(data => {
+          console.log('success'+data)
+          resolve(data);
+        }, err => {
+          console.log('err'+err)
           reject(err);
         })
     })

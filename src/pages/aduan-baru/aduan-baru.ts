@@ -22,15 +22,16 @@ export class AduanBaruPage {
         // add submission to API
         this.api.createAduan(this.aduan).then(result => {
           let response: any = result;
+          //console.log(response);
           if(response.feedData){
-            alert('Aduan berjaya dihantar');
+            this.api.showAlert('Aduan berjaya dihantar');
             this.aduan = {title: null, kategori: null, masalah: null};
           }
         }, err => {
-            alert('Error: ' + JSON.stringify(err));
+          this.api.showAlert('Error: ' + JSON.stringify(err));
         })
       } else {
-        alert('Sila masukkan semua informasi');
+        this.api.showAlert('Sila masukkan semua informasi');
       }
   }
   

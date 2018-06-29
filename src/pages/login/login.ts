@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { DaftarPage } from '../daftar/daftar';
 import { ApiProvider } from '../../providers/api/api';
 import { TabsControllerPage } from '../tabs-controller/tabs-controller';
+import { stringify } from '@angular/core/src/render3/util';
 
 @Component({
   selector: 'page-login',
@@ -34,9 +35,11 @@ export class LoginPage {
             this.navCtrl.setRoot(TabsControllerPage, {}, {animate: true});
 
           } else {
-            alert(response.error.text);
+            this.api.showAlert(response.error.text);
           }
 
+        }, err=> {
+          this.api.showAlert(JSON.stringify(err));
         })
       }  
   }
