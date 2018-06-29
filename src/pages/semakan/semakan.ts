@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController } from 'ionic-angular';
+import { NavController, AlertController, LoadingController } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
 
 @Component({
@@ -13,7 +13,7 @@ export class SemakanPage {
   //add here
   tempList: any;
   constructor(public navCtrl: NavController, 
-    public api: ApiProvider, public alertCtrl: AlertController) {
+    public api: ApiProvider, public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
   }
 
   batal(aduan){
@@ -49,8 +49,20 @@ export class SemakanPage {
     confirm.present();
   }
 
+  ionViewWillEnter(){
+    this.ionViewDidLoad();
+  }
+
   ionViewDidLoad(){
+
+    const loader = this.loadingCtrl.create({
+      content: "Please wait..."
+    });
+
+    loader.present();
+
     this.api.getAduanById().then(result => {
+      loader.dismiss();
       let response: any = result;
       this.semakanList = response.feedData;
       //add here

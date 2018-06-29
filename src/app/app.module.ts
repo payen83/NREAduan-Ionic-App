@@ -11,7 +11,7 @@ import { PentadbirPage } from '../pages/pentadbir/pentadbir';
 import { KemaskiniPage } from '../pages/kemaskini/kemaskini';
 import { LoginPage } from '../pages/login/login';
 import { DaftarPage } from '../pages/daftar/daftar';
-
+import { Camera } from '@ionic-native/camera';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -53,7 +53,8 @@ import { HttpClientModule } from '@angular/common/http';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ApiProvider
+    ApiProvider,
+    Camera
   ]
 })
 export class AppModule {}
